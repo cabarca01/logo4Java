@@ -122,30 +122,31 @@ public class Canvas {
         }
     }
 
-    public void processCommand( int command, int distance) {
-        switch (command) {
-            case 1:
+    public void processCommand( String command, int parameter) {
+        LogoCommands enteredCommand = LogoCommands.valueOf(command.toUpperCase());
+        switch (enteredCommand) {
+            case PU:
                 turtle.setPenStatus(0);
                 break;
-            case 2:
+            case PD:
                 turtle.setPenStatus(1);
                 break;
-            case 3:
+            case RT:
                 turtle.rotateTurtle("R");
                 break;
-            case 4:
+            case LT:
                 turtle.rotateTurtle("L");
                 break;
-            case 5:
-                drawOnCanvas( distance );
+            case FD:
+                drawOnCanvas( parameter );
                 break;
-            case 7:
+            case SG:
                 showGrid = true;
                 break;
-            case 8:
+            case HG:
                 showGrid = false;
                 break;
-            case 6:
+            case PAINT:
             default:
                 showCanvas();
                 break;
